@@ -1,8 +1,9 @@
 from datetime import datetime
-import pandas as pd
 from tabulate import tabulate
+import pandas as pd
+import plotext as plt
 
-# alculate the time spent between a start time and an end time in minutes
+# calculate the time spent between a start time and an end time in minutes
 def calculate_time_spent(start_time, end_time):
   format = "%H:%M" # set the time format
   start = datetime.strptime(start_time, format) #convert start_time to datetime
@@ -51,4 +52,7 @@ def create_report_three(data, file='PhaseThreeReport3.txt'):
     # write the table to the file using tabulate
     f.write(tabulate(df, headers='keys', tablefmt='grid', showindex=False)) # Resource #16
     print(f"Report saved to {file}")
-  return None
+  return df
+
+def create_graph_b(dataFrame):
+  print('graph_b')
